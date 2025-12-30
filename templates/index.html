@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Agriculture System</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        background-image: url("https://images.unsplash.com/photo-1605000797499-95a51c5269ae");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Dark overlay for readability */
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.55);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    h1 {
+        margin-bottom: 40px;
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .card-container {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        background: white;
+        color: black;
+        width: 260px;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-decoration: none;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .card h2 {
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        font-size: 15px;
+        color: #333;
+    }
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+    <h1>🌾 Smart Agriculture System</h1>
+
+    <div class="card-container">
+
+        <!-- Yield Prediction Card -->
+        <a href="/yield_form" class="card">
+            <h2>🌾 Crop Yield Prediction</h2>
+            <p>
+                Predict crop yield using location, weather, soil moisture, and vegetation indices.
+            </p>
+        </a>
+
+        <!-- Fertilizer Recommendation Card -->
+        <a href="/fertilizer" class="card">
+            <h2>🧪 Fertilizer Recommendation</h2>
+            <p>
+                Get the best fertilizer recommendation based on soil and crop conditions.
+            </p>
+        </a>
+
+    </div>
+
+</div>
+</body>
+</html>

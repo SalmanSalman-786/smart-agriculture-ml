@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fertilizer Recommendation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1523741543316-beb7fc7023d8");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay */
+.overlay {
+    background: rgba(0,0,0,0.65);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+/* Input */
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+}
+
+.input-group span {
+    margin-right: 6px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+/* Back */
+.back {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.back a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+<div class="overlay">
+<div class="container">
+
+<h2>🧪 Fertilizer Recommendation</h2>
+
+<form method="POST" action="/fertilizer_predict">
+
+<div class="grid">
+
+    <!-- Soil Details -->
+    <div class="card">
+        <h3>🌱 Soil Details</h3>
+
+        <div class="input-group"><span>🪨</span>
+            <input name="soil_type" placeholder="Soil Type" required>
+        </div>
+
+        <div class="input-group"><span>⚗️</span>
+            <input type="number" name="soil_ph" step="0.1" min="0" max="14" placeholder="Soil pH" required>
+        </div>
+
+        <div class="input-group"><span>💧</span>
+            <input type="number" name="soil_moisture" min="0" max="100" placeholder="Soil Moisture (%)" required>
+        </div>
+    </div>
+
+    <!-- Nutrients -->
+    <div class="card">
+        <h3>🧬 Nutrient Levels</h3>
+
+        <div class="input-group"><span>N</span>
+            <input type="number" name="nitrogen" min="0" placeholder="Nitrogen" required>
+        </div>
+
+        <div class="input-group"><span>P</span>
+            <input type="number" name="phosphorus" min="0" placeholder="Phosphorus" required>
+        </div>
+
+        <div class="input-group"><span>K</span>
+            <input type="number" name="potassium" min="0" placeholder="Potassium" required>
+        </div>
+    </div>
+
+    <!-- Climate -->
+    <div class="card">
+        <h3>🌦 Climate</h3>
+
+        <div class="input-group"><span>🌡</span>
+            <input type="number" name="temperature" placeholder="Temperature (°C)" required>
+        </div>
+
+        <div class="input-group"><span>💦</span>
+            <input type="number" name="humidity" min="0" max="100" placeholder="Humidity (%)" required>
+        </div>
+
+        <div class="input-group"><span>🌧</span>
+            <input type="number" name="rainfall" min="0" placeholder="Rainfall (mm)" required>
+        </div>
+    </div>
+
+    <!-- Crop History -->
+    <div class="card">
+        <h3>🌾 Crop Information</h3>
+
+        <div class="input-group"><span>🌱</span>
+            <input name="crop_type" placeholder="Crop Type" required>
+        </div>
+
+        <div class="input-group"><span>🔄</span>
+            <input name="previous_crop" placeholder="Previous Crop" required>
+        </div>
+
+        <div class="input-group"><span>📍</span>
+            <input name="region" placeholder="Region" required>
+        </div>
+
+        <div class="input-group"><span>🧪</span>
+            <input name="last_fert" placeholder="Last Fertilizer Used" required>
+        </div>
+
+        <div class="input-group"><span>📈</span>
+            <input type="number" step="0.1" name="last_yield" placeholder="Yield Last Season" required>
+        </div>
+    </div>
+
+</div>
+
+<button type="submit">Recommend Fertilizer</button>
+
+</form>
+
+<div class="back">
+    <a href="/">⬅ Back to Home</a>
+</div>
+
+</div>
+</div>
+</body>
+</html>

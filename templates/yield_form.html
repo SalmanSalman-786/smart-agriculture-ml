@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crop Yield Prediction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Bright overlay */
+.overlay {
+    background: rgba(255, 255, 255, 0.35);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Card */
+.form-card {
+    background: rgba(255, 255, 255, 0.98);
+    width: 100%;
+    max-width: 430px;
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(35px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #2e7d32;
+}
+
+/* Input groups */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f4f7f4;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdcdc;
+}
+
+.input-group span {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    font-size: 14px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+}
+
+/* Back link */
+.back-link {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .form-card {
+        padding: 24px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="overlay">
+<div class="form-card">
+
+<h2>🌾 Crop Yield Prediction</h2>
+
+<form method="POST" action="/yield">
+
+    <div class="input-group">
+        <span>📍</span>
+        <input type="text" name="location" placeholder="Location" required>
+    </div>
+
+    <div class="input-group">
+        <span>🌱</span>
+        <input type="text" name="crop_type" placeholder="Crop (rice, wheat…)" required>
+    </div>
+
+    <div class="input-group">
+        <span>💧</span>
+        <input type="number" name="soil_moisture"
+               min="0" max="100" step="0.1"
+               placeholder="Soil Moisture (%)" required>
+    </div>
+
+    <div class="input-group">
+        <span>🌿</span>
+        <input type="number" name="ndvi"
+               min="0" max="1" step="0.01"
+               placeholder="NDVI (0–1)" required>
+    </div>
+
+    <div class="input-group">
+        <span>🍃</span>
+        <input type="number" name="gndvi"
+               min="0" max="1" step="0.01"
+               placeholder="GNDVI (0–1)" required>
+    </div>
+
+    <div class="input-group">
+        <span>💦</span>
+        <input type="number" name="ndwi"
+               min="-1" max="1" step="0.01"
+               placeholder="NDWI (-1–1)" required>
+    </div>
+
+    <div class="input-group">
+        <span>🌾</span>
+        <input type="number" name="savi"
+               min="0" max="1" step="0.01"
+               placeholder="SAVI (0–1)" required>
+    </div>
+
+    <button type="submit">Predict Yield</button>
+</form>
+
+<div class="back-link">
+    <a href="/">⬅ Back to Home</a>
+</div>
+
+</div>
+</div>
+</body>
+</html>
