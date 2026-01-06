@@ -19,4 +19,4 @@ A Machine Learning based web application for:
 - Scikit-learn
 - HTML, CSS
 
-## 📂 Project Structure
+
