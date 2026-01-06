@@ -1,4 +1,5 @@
 # 🌾 Smart Agriculture System (ML)
+<img width="1914" height="901" alt="image" src="https://github.com/user-attachments/assets/67d50534-1261-4d67-95c7-de27c38d1870" />
 
 A Machine Learning based web application for:
 
